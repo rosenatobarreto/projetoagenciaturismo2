@@ -83,27 +83,27 @@ public class PacoteController {
     }
 	
 	//  api/find?name=abc&periodo=verao&id=2
-	@GetMapping
-	public ResponseEntity find(
-			@RequestParam(value = "nomePacote", required = false) String nomePacote,
-			@RequestParam(value = "periodoEmDias", required = false) Integer periodoEmDias,
-			@RequestParam(value = "idPacote", required = false) Long idPacote
-			) {
-		try {
-			Pacote filter = new Pacote();
-			filter.setIdPacote(idPacote);
-			filter.setNomePacote(nomePacote);
-			filter.setPeriodoEmDias(periodoEmDias);
-			
-			List<Pacote> entities = pacoteService.find(filter);
-			List<PacoteDto> dtos = pacoteConverterService.pacoteToDTO(entities);
-			
-			return ResponseEntity.ok(dtos);
-			
-		} catch (Exception e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
-		}
-	}
+//	@GetMapping
+//	public ResponseEntity find(
+//			@RequestParam(value = "nomePacote", required = false) String nomePacote
+//			//@RequestParam(value = "periodoEmDias", required = false) Integer periodoEmDias,
+//			//@RequestParam(value = "idPacote", required = false) Long idPacote
+//			) {
+//		try {
+//			Pacote filter = new Pacote();
+//			//filter.setIdPacote(idPacote);
+//			filter.setNomePacote(nomePacote);
+//			//filter.setPeriodoEmDias(periodoEmDias);
+//			
+//			List<Pacote> entities = pacoteService.find(filter);
+//			List<PacoteDto> dtos = pacoteConverterService.pacoteToDTO(entities);
+//			
+//			return ResponseEntity.ok(dtos);
+//			
+//		} catch (Exception e) {
+//			return ResponseEntity.badRequest().body(e.getMessage());
+//		}
+//	}
 	
 	
 	
