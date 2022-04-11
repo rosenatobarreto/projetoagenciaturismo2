@@ -6,9 +6,13 @@ import java.util.stream.Collectors;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import com.api.ekologictur.model.Destino;
 import com.api.ekologictur.model.Pacote;
 
+@Component
 public class DestinoDto {
 	
 private Long idDestino;
@@ -30,6 +34,7 @@ private Long idDestino;
 	public DestinoDto() {
 	}
 
+	@Bean
 	public static List<DestinoDto> convert(List<Destino> destino){
 		return destino.stream().map(DestinoDto::new).collect(Collectors.toList());
 	  

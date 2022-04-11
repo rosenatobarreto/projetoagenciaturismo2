@@ -3,15 +3,19 @@ package com.api.ekologictur.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import com.api.ekologictur.model.Pacote;
 
+@Component
 public class PacoteDto {
 	
 	private Long idPacote;
 	private String nomePacote;
 	private String epoca;
 	private double preco;
-	private int periodoEmDias;
+	private Integer periodoEmDias;
 	
 	public PacoteDto() {
 		
@@ -27,8 +31,7 @@ public class PacoteDto {
 		this.periodoEmDias = pacote.getPeriodoEmDias();
 	}
 	
-	
-	 public static List<PacoteDto> convert(List<Pacote> pacote){
+	public static List<PacoteDto> convert(List<Pacote> pacote){
 		return pacote.stream().map(PacoteDto::new).collect(Collectors.toList());
 	  
 	 }
@@ -79,7 +82,7 @@ public class PacoteDto {
 	}
 
 
-	public void setPeriodoEmDias(int periodoEmDias) {
+	public void setPeriodoEmDias(Integer periodoEmDias) {
 		this.periodoEmDias = periodoEmDias;
 	}
 	 

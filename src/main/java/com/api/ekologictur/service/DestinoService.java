@@ -63,9 +63,5 @@ public class DestinoService {
 		return destinoRepository.findAll(example);
 		
 	}
-	
-//	public Destino findByName(String name) {
-//		return destinoRepository.findByName(name);
-//	}
-	
+		
 }
