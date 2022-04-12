@@ -81,7 +81,6 @@ public class DestinoController {
         return ResponseEntity.notFound().build();
     }
 		
-	//  api/find?name=abc&tipo=nacional&id=2
 	@GetMapping
 	public ResponseEntity find(
 			@RequestParam(value = "nomeDestino", required = false) String nomeDestino,
@@ -103,6 +102,5 @@ public class DestinoController {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
-
 
 }

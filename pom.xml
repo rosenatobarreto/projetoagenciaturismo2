@@ -13,7 +13,7 @@
 	<artifactId>ekologictur</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ekologictur</name>
-	<description>Atividade 2 DAC - uso de DAO, Controller.</description>
+	<description>Atividade DAC - Uso do padrão DTO.</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
