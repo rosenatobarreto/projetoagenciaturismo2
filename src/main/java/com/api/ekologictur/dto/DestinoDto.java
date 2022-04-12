@@ -15,8 +15,7 @@ import com.api.ekologictur.model.Pacote;
 @Component
 public class DestinoDto {
 	
-private Long idDestino;
-	
+	private Long idDestino;
 	private String nomeDestino;
 	private String localidade;
 	private String tipoDestino;
