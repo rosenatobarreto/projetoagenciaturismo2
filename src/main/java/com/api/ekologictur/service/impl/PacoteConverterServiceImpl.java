@@ -1,4 +1,4 @@
-package com.api.ekologictur.service;
+package com.api.ekologictur.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.api.ekologictur.dto.PacoteDto;
 import com.api.ekologictur.model.Pacote;
 import com.api.ekologictur.repository.PacoteRepository;
+import com.api.ekologictur.service.PacoteConverterService;
 
 @Component
 public class PacoteConverterServiceImpl implements PacoteConverterService{

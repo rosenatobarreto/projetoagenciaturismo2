@@ -24,11 +24,11 @@ import com.api.ekologictur.service.PacoteService;
 @RestController
 @RequestMapping("/api/pacote")
 public class PacoteController {
-	
-	@Autowired(required=true)
+
+	@Autowired(required = true)
 	private PacoteConverterService pacoteConverterService;
 
-	@Autowired(required=true)
+	@Autowired(required = true)
 	private PacoteService pacoteService;
 
 	@PostMapping
@@ -37,14 +37,14 @@ public class PacoteController {
 			Pacote entity = pacoteConverterService.dtoToPacote(dto);
 			entity = pacoteService.save(entity);
 			dto = pacoteConverterService.pacoteToDTO(entity);
-			
+
 			return new ResponseEntity(dto, HttpStatus.CREATED);
 
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
-	
+
 	@PutMapping("{id}")
 	public ResponseEntity update(@PathVariable("id") Long id, @RequestBody PacoteDto dto) {
 		try {
@@ -52,9 +52,9 @@ public class PacoteController {
 			Pacote entity = pacoteConverterService.dtoToPacote(dto);
 			entity = pacoteService.update(entity);
 			dto = pacoteConverterService.pacoteToDTO(entity);
-			
+
 			return ResponseEntity.ok(dto);
-			
+
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
@@ -69,36 +69,45 @@ public class PacoteController {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
-	
-	@GetMapping("/{id}")
-    public ResponseEntity<PacoteDto> getPacoteById(@PathVariable Long id) {
-        Pacote pacote = pacoteService.findById(id);
-        if (pacote != null) {
-        	PacoteDto pacoteDto = new PacoteDto();
-            BeanUtils.copyProperties(pacote, pacoteDto);
-            return ResponseEntity.ok(pacoteDto);
-        }
 
-        return ResponseEntity.notFound().build();
-    }
-	
-	
+	@GetMapping("/{id}")
+	public ResponseEntity<PacoteDto> getPacoteById(@PathVariable Long id) {
+		Pacote pacote = pacoteService.findById(id);
+		if (pacote != null) {
+			PacoteDto pacoteDto = new PacoteDto();
+			BeanUtils.copyProperties(pacote, pacoteDto);
+			return ResponseEntity.ok(pacoteDto);
+		}
+
+		return ResponseEntity.notFound().build();
+	}
+
 	@GetMapping
-	public ResponseEntity find(
-			@RequestParam(value = "nomePacote", required = false) String nomePacote
-			) {
+	public ResponseEntity find(@RequestParam(value = "nomePacote", required = false) String nomePacote) {
 		try {
 			Pacote filter = new Pacote();
 			filter.setNomePacote(nomePacote);
-			
+
 			List<Pacote> entities = pacoteService.find(filter);
 			List<PacoteDto> dtos = pacoteConverterService.pacoteToDTO(entities);
-			
+
 			return ResponseEntity.ok(dtos);
-			
+
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
-	
+
+	@GetMapping("/all")
+	public List<Pacote> findAll() throws Exception {
+
+		List<Pacote> result = pacoteService.findAll();
+
+		if (result.isEmpty()) {
+			throw new Exception("List is empty!");
+		} else {
+			return pacoteService.findAll();
+		}
+	}
+
 }

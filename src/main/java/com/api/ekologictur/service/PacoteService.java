@@ -50,7 +50,7 @@ public class PacoteService {
 		return pacoteRepository.findById(id).get();
 	}
 
-	public Iterable<Pacote> findAll() {
+	public List<Pacote> findAll() {
 		return pacoteRepository.findAll();
 	}
 	

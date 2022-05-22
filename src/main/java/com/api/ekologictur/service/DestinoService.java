@@ -51,7 +51,7 @@ public class DestinoService {
 		return destinoRepository.findById(id).get();
 	}
 
-	public Iterable<Destino> findAll() {
+	public List<Destino> findAll() {
 		return destinoRepository.findAll();
 	}
 	

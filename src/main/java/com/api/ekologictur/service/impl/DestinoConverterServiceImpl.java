@@ -1,4 +1,4 @@
-package com.api.ekologictur.service;
+package com.api.ekologictur.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.api.ekologictur.dto.DestinoDto;
 import com.api.ekologictur.model.Destino;
+import com.api.ekologictur.service.DestinoConverterService;
 
 @Component
 public class DestinoConverterServiceImpl implements DestinoConverterService{
