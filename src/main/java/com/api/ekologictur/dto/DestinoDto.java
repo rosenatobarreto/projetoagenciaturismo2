@@ -1,6 +1,7 @@
 package com.api.ekologictur.dto;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import javax.persistence.JoinColumn;
@@ -19,7 +20,7 @@ public class DestinoDto {
 	private String nomeDestino;
 	private String localidade;
 	private String tipoDestino;
-	private Pacote pacote;
+	private Long pacote;
 	
 	public DestinoDto(Destino destino) {
 		super();
@@ -27,7 +28,7 @@ public class DestinoDto {
 		this.nomeDestino = destino.getNomeDestino();
 		this.localidade = destino.getLocalidade();
 		this.tipoDestino = destino.getTipoDestino();
-		this.pacote = destino.getPacote();
+		this.pacote = destino.getPacote().getIdPacote();
 	}
 	
 	public DestinoDto() {
@@ -71,12 +72,31 @@ public class DestinoDto {
 		this.tipoDestino = tipoDestino;
 	}
 
-	public Pacote getPacote() {
+	public Long getPacote() {
 		return pacote;
 	}
 
-	public void setPacote(Pacote pacote) {
+	public void setPacote(Long pacote) {
 		this.pacote = pacote;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idDestino, localidade, nomeDestino, pacote, tipoDestino);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DestinoDto other = (DestinoDto) obj;
+		return Objects.equals(idDestino, other.idDestino) && Objects.equals(localidade, other.localidade)
+				&& Objects.equals(nomeDestino, other.nomeDestino) && Objects.equals(pacote, other.pacote)
+				&& Objects.equals(tipoDestino, other.tipoDestino);
 	}
 	
 	

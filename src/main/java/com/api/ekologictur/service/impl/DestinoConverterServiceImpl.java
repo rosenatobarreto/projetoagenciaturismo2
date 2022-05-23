@@ -33,7 +33,7 @@ public class DestinoConverterServiceImpl implements DestinoConverterService{
 		entity.setNomeDestino(dto.getNomeDestino());
 		entity.setLocalidade(dto.getLocalidade());
 		entity.setTipoDestino(dto.getTipoDestino());
-		entity.setPacote(dto.getPacote());
+		//entity.setPacote(dto.getPacote());
 				
 		return entity;
 	}
@@ -46,7 +46,7 @@ public class DestinoConverterServiceImpl implements DestinoConverterService{
 		dto.setNomeDestino(entity.getNomeDestino());
 		dto.setLocalidade(entity.getLocalidade());
 		dto.setTipoDestino(entity.getTipoDestino());
-		dto.setPacote(entity.getPacote());
+		//dto.setPacote(entity.getPacote());
 		
 		return dto;
 	}

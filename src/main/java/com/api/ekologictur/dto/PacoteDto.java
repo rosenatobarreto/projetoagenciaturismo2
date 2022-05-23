@@ -1,9 +1,9 @@
 package com.api.ekologictur.dto;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import com.api.ekologictur.model.Pacote;
@@ -84,6 +84,27 @@ public class PacoteDto {
 
 	public void setPeriodoEmDias(Integer periodoEmDias) {
 		this.periodoEmDias = periodoEmDias;
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(epoca, idPacote, nomePacote, periodoEmDias, preco);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PacoteDto other = (PacoteDto) obj;
+		return Objects.equals(epoca, other.epoca) && Objects.equals(idPacote, other.idPacote)
+				&& Objects.equals(nomePacote, other.nomePacote) && Objects.equals(periodoEmDias, other.periodoEmDias)
+				&& Double.doubleToLongBits(preco) == Double.doubleToLongBits(other.preco);
 	}
 	 
 	 

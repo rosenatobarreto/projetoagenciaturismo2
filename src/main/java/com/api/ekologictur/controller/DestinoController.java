@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.ekologictur.dto.DestinoDto;
 import com.api.ekologictur.model.Destino;
-import com.api.ekologictur.model.Pacote;
 import com.api.ekologictur.service.DestinoConverterService;
 import com.api.ekologictur.service.DestinoService;
 

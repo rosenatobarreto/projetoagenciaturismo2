@@ -18,11 +18,8 @@ public class Destino implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idDestino;
-	
 	private String nomeDestino;
-	
 	private String localidade;//pais, estado, provincia
-	
 	private String tipoDestino;//nacional ou internacional
 	
 	@ManyToOne

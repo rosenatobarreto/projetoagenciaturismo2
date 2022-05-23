@@ -83,10 +83,20 @@ public class PacoteController {
 	}
 
 	@GetMapping
-	public ResponseEntity find(@RequestParam(value = "nomePacote", required = false) String nomePacote) {
+	public ResponseEntity find(
+			@RequestParam(value = "idPacote", required = false) Long idPacote,
+			@RequestParam(value = "nomePacote", required = false) String nomePacote,
+			@RequestParam(value = "epoca", required = false) String epoca,
+			@RequestParam(value = "preco", required = false) double preco,
+			@RequestParam(value = "periodoEmDias", required = false) Integer periodoEmDias
+			) {
 		try {
 			Pacote filter = new Pacote();
+			filter.setIdPacote(idPacote);
 			filter.setNomePacote(nomePacote);
+			filter.setEpoca(epoca);
+			filter.setPreco(preco);
+			filter.setPeriodoEmDias(periodoEmDias);
 
 			List<Pacote> entities = pacoteService.find(filter);
 			List<PacoteDto> dtos = pacoteConverterService.pacoteToDTO(entities);
